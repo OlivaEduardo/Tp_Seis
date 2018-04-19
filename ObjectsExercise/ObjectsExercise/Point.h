@@ -7,6 +7,8 @@ private:
 	float* mX;
 	float* mY;
 	float* mZ;
+
+	void swapMember(float* thismem, float* newmem);
 public:
 
 	//Constructors
@@ -18,14 +20,17 @@ public:
 	~Point();
 
 	//Getters
-	float getX();
-	float getY();
-	float getZ();
+	const float getX();
+	const float getY();
+	const float getZ();
 
 	//Setters
 	void setX(const float x);
 	void setY(const float y);
 	void setZ(const float z);
+
+	//Assignment operator overload
+	Point& operator= (const Point& p);
 
 	//Operation Functions
 	Point getAddition(const Point&p);
@@ -34,8 +39,6 @@ public:
 	const Point& substract(const Point& p);
 
 	float distance(const Point& p);
-
-	//Assignment operator overload
 
 };
 

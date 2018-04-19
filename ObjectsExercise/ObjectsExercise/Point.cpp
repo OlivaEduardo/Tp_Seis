@@ -26,17 +26,17 @@ Point::~Point()
 }
 
 //Getters
-float Point::getX()
+const float Point::getX()
 {
 	return *mX;
 }
 
-float Point::getY()
+const float Point::getY()
 {
 	return *mY;
 }
 
-float Point::getZ()
+const float Point::getZ()
 {
 	return *mZ;
 }
@@ -56,3 +56,63 @@ void Point::setZ(float z)
 {
 	mZ = new float(z);
 }
+
+//Assignment operator
+Point& Point::operator= (const Point& p)
+{
+	if (this != &p)
+	{
+		swapMember(this->mX, p.mX);
+		swapMember(this->mY, p.mY);
+		swapMember(this->mZ, p.mZ);
+	}
+
+	return *this;
+}
+
+void Point::swapMember(float* thismem, float* newmem)
+{
+	if (thismem != nullptr && newmem != nullptr)
+	{
+		float* aux = thismem;
+		thismem = newmem;
+		newmem = thismem;
+	}
+}
+
+//Operation functions
+
+Point Point::getAddition(const Point& p)
+{
+	Point aux = Point(*this->mX + *p.mX, *this->mY + *p.mY, *this->mZ + *p.mZ);
+	return aux;
+}
+
+const Point& Point::add(const Point& p)
+{
+	*mX += *p.mX;
+	*mY += *p.mY;
+	*mZ += *p.mZ;
+
+	return *this;
+}
+
+Point Point::getSubstraction(const Point& p)
+{
+	Point aux = Point(*this->mX - *p.mX, *this->mY - *p.mY, *this->mZ - *p.mZ);
+	return aux;
+}
+
+const Point& Point::substract(const Point& p)
+{
+	*mX -= *p.mX;
+	*mY -= *p.mY;
+	*mZ -= *p.mZ;
+
+	return *this;
+}
+
+//float Point::distance(const Point& p)
+//{
+//
+//}
