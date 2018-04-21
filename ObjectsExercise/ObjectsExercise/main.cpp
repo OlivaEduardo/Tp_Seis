@@ -32,6 +32,10 @@ int main() {
 
 	std::cout << "\np4X: " << p4.getX() << "\np4Y: " << p4.getY() << "\np4Z: " << p4.getZ() << std::endl;
 
+	std::cout << "Distancia entre p1 y p2: " << p1.distance(p3);
+
+
+
 	int f;
 	std::cin >> f;
 
